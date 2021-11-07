@@ -18,34 +18,47 @@ const hasCipherShift = (configArr, charCipher) => {
 
 const validateConfigCipher = (configStr) =>
   new Promise((res, rej) => {
-    const configArr = configStr.split('-');
     if (!configStr) {
       rej(new CustomerError('Config can\'t to be empty.For example "C1-R0-A"'));
     }
+
+    const configArr = configStr.split('-');
     if (!isValidFirstChar(configArr, CHARS)) {
       rej(
         new CustomerError(
-          'First letter of each item config should be С, R, A. For example "C1-R0-A-C1"'
+          `Config "${configStr}" isn't valid. First letter of each item config should be С, R, A. For example "C1-R0-A-C1"`
         )
       );
     }
     if (!hasEveryItemNotMoreTwoChar(configArr)) {
       rej(
         new CustomerError(
-          'Each item of config shouldn\'t has more than two chars. For example "C1-R0-A-C1"'
+          `Config "${configStr}" isn't valid. Each item of config shouldn't has more than two chars. For example "C1-R0-A-C1"`
         )
       );
     }
     if (!isShiftOneOrZero(configArr, CHAR_CAESAR)) {
-      rej(new CustomerError('0 or 1 should be after C or R in config. For example "C1-R0-A-C1"'));
+      rej(
+        new CustomerError(
+          `Config "${configStr}" isn't valid. 0 or 1 should be after C or R in config. For example "C1-R0-A-C1"`
+        )
+      );
     }
 
     if (!isShiftOneOrZero(configArr, CHAR_ROT8)) {
-      rej(new CustomerError('0 or 1 should be after C or R in config. For example "C1-R0-A-C1"'));
+      rej(
+        new CustomerError(
+          `Config "${configStr}" isn't valid. 0 or 1 should be after C or R in config. For example "C1-R0-A-C1"`
+        )
+      );
     }
 
     if (hasCipherShift(configArr, CHAR_ATBASH)) {
-      rej(new CustomerError('After A shouldn\'t be number in config. For example "C1-R0-A-C1"'));
+      rej(
+        new CustomerError(
+          `Config "${configStr}" isn't valid. After A shouldn't be number in config. For example "C1-R0-A-C1"`
+        )
+      );
     }
     res();
   });
