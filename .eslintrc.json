@@ -11,6 +11,7 @@
     "no-plusplus": 0,
     "quotes": [1, "single", { "avoidEscape": true }],
     "no-unused-vars": "warn",
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    "no-underscore-dangle": 0
   }
 }
