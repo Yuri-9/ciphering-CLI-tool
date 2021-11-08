@@ -5,6 +5,7 @@ const validateOptionCLI = require('./modules/validate/validateOptionCLI');
 const validateConfigCipher = require('./modules/validate/validateConfigCipher');
 const parseCLI = require('./modules/parseCLI/parseCLI');
 const caesarCipher = require('./modules/cipher/caesarCipher');
+const atbashCipher = require('./modules/cipher/atbashCipher');
 const CipherStream = require('./modules/cipher/CipherStream');
 const { CHAR_CAESAR, CHAR_ROT8, CHAR_ATBASH, SHIFT_CAESAR, SHIFT_ROT8 } = require('./const');
 
@@ -28,6 +29,9 @@ const app = async () => {
         case CHAR_ROT8: {
           const shift = +item[1] ? SHIFT_ROT8 : -SHIFT_ROT8;
           return new CipherStream({ highWaterMark: 10 }, caesarCipher, shift);
+        }
+        case CHAR_ATBASH: {
+          return new CipherStream({ highWaterMark: 10 }, atbashCipher);
         }
         default: {
           return new CipherStream({ highWaterMark: 10 }, caesarCipher, 0);
