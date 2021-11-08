@@ -1,7 +1,7 @@
 const errorHandler = (err) => {
   const { isCustom } = err;
   if (isCustom) {
-    process.stderr.write(`Error: ${err.message} \n`);
+    process.stderr.write(`\nError: ${err.message} \n`);
     process.exit(2);
   } else {
     throw err;

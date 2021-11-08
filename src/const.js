@@ -3,6 +3,9 @@ const CHAR_ROT8 = 'R';
 const CHAR_ATBASH = 'A';
 const CHARS = [CHAR_CAESAR, CHAR_ROT8, CHAR_ATBASH];
 
+const SHIFT_CAESAR = 1;
+const SHIFT_ROT8 = 8;
+
 const OPTION_CONFIG = ['-c', '--config'];
 const OPTION_INPUT_FILE = ['-i', '--input'];
 const OPTION_OUTPUT_FILE = ['-o', '--output'];
@@ -42,9 +45,14 @@ module.exports = {
   CHAR_ROT8,
   CHAR_ATBASH,
   CHARS,
+
+  SHIFT_CAESAR,
+  SHIFT_ROT8,
+
   OPTION_CONFIG,
   OPTION_INPUT_FILE,
   OPTION_OUTPUT_FILE,
   OPTIONS,
+
   ENGLISH_ALFABIT,
 };
