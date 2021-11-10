@@ -3,6 +3,7 @@ const validateOptionCLI = require('./modules/validate/validateOptionCLI');
 const validateConfigCipher = require('./modules/validate/validateConfigCipher');
 const parseCLI = require('./modules/parseCLI/parseCLI');
 const Streams = require('./modules/Streams/Streams');
+const isFileExists = require('./modules/validate/isFileExists');
 
 const appArgs = process.argv.slice(2);
 const app = async () => {
@@ -10,6 +11,11 @@ const app = async () => {
     await validateOptionCLI(appArgs);
     const { config, input, output } = parseCLI(appArgs);
     console.log(config, input, output);
+    if (input !== null) {
+      await isFileExists(input);
+    }
+    await isFileExists(output);
+
     await validateConfigCipher(config);
 
     const streams = new Streams(config, input, output);

@@ -10,10 +10,13 @@ class Streams {
     this.config = config;
     this.inputFile = inputFile;
     this.outputFile = outputFile;
-    this.readStream = fs.createReadStream(this.inputFile, {
-      encoding: 'utf8',
-      highWaterMark: 10,
-    });
+    this.readStream =
+      inputFile === null
+        ? process.stdin
+        : fs.createReadStream(this.inputFile, {
+            encoding: 'utf8',
+            highWaterMark: 10,
+          });
     this.writeStream = fs.createWriteStream(this.outputFile, {
       encoding: 'utf8',
       flags: 'a',
@@ -55,7 +58,7 @@ class Streams {
       );
     });
     await pipeline2;
-    fs.appendFile('./src/output.txt', '\n', () => {});
+    fs.appendFile('./output.txt', '\n', () => {});
   }
 }
 
