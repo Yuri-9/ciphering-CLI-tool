@@ -17,10 +17,13 @@ class Streams {
             encoding: 'utf8',
             highWaterMark: 10,
           });
-    this.writeStream = fs.createWriteStream(this.outputFile, {
-      encoding: 'utf8',
-      flags: 'a',
-    });
+    this.writeStream =
+      outputFile === null
+        ? process.stdout
+        : fs.createWriteStream(this.outputFile, {
+            encoding: 'utf8',
+            flags: 'a',
+          });
   }
 
   createChainTransformStreams() {
@@ -46,6 +49,10 @@ class Streams {
   }
 
   async runPipeline() {
+    const fileStats = fs.statSync(this.outputFile);
+    if (this.outputFile && fileStats.size) {
+      fs.appendFile(this.outputFile, '\n', () => {});
+    }
     const pipeline2 = new Promise((res, rej) => {
       pipeline(
         [this.readStream, ...this.createChainTransformStreams(), this.writeStream],
@@ -58,7 +65,6 @@ class Streams {
       );
     });
     await pipeline2;
-    fs.appendFile('./output.txt', '\n', () => {});
   }
 }
 
