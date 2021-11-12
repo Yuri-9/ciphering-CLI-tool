@@ -2,10 +2,10 @@
   "name": "ciphering-cli-tool",
   "version": "1.0.0",
   "description": "cipher cli tool Caesar Atbash ROT-8",
-  "main": "index.js",
+  "main": "my_ciphering_cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js -c C1-C1-R0-A -i ./input.txt -o ./output.txt",
+    "start": "node my_ciphering_cli.js -c C1-C1-R0-A -i ./input.txt -o ./output.txt",
     "lint": "eslint --fix src"
   },
   "repository": {

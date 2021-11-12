@@ -31,6 +31,6 @@ const app = async () => {
 
 module.exports = app;
 
-// node index.js -c "C1-R1-A" -i "./input.txt" -o "./output.txt"
-// node index.js -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1" -i "./input.txt" -o "./output.txt"
-// node index.js -i "./input.txt" -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1"  -o "./output.txt"
+// node my_ciphering_cli.js -c "C1-R1-A" -i "./input.txt" -o "./output.txt"
+// node my_ciphering_cli.js -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1" -i "./input.txt" -o "./output.txt"
+// node my_ciphering_cli.js -i "./input.txt" -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1"  -o "./output.txt"

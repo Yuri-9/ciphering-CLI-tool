@@ -23,7 +23,7 @@ CLI tool accepts 3 options:
 **Usage example:**
 
 ```bash
-$ node index.js -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"
+$ node my_ciphering_cli.js -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"
 ```
 
 > input.txt `This is secret. Message about "_" symbol!`
