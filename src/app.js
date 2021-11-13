@@ -11,7 +11,6 @@ const app = async () => {
   try {
     await validateOptionCLI(appArgs);
     const { config, input, output } = parseCLI(appArgs);
-    console.log(config, input, output);
 
     if (input !== null) {
       await isFileExists(input);
@@ -23,14 +22,10 @@ const app = async () => {
     await validateConfigCipher(config);
 
     const streams = new Streams(config, input, output);
-    streams.runPipeline();
+    await streams.runPipeline();
   } catch (error) {
     errorHandler(error);
   }
 };
 
 module.exports = app;
-
-// node my_ciphering_cli.js -c "C1-R1-A" -i "./input.txt" -o "./output.txt"
-// node my_ciphering_cli.js -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1" -i "./input.txt" -o "./output.txt"
-// node my_ciphering_cli.js -i "./input.txt" -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1"  -o "./output.txt"

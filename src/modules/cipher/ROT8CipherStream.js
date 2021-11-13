@@ -10,7 +10,7 @@ class ROT8CipherStream extends Transform {
 
   _transform(chunk, encoding, callback) {
     const cipheredChunk = caesarCipher(chunk.toString('utf-8'), this.shift);
-    this.push(Buffer.from(cipheredChunk));
+    this.push(cipheredChunk);
     callback();
   }
 }

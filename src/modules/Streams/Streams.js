@@ -4,6 +4,8 @@ const CaesarCipherStream = require('../cipher/CaesarCipherStream');
 const ROT8CipherStream = require('../cipher/ROT8CipherStream');
 const AtbashCipherStream = require('../cipher/AtbashCipherStream');
 const { CHAR_CAESAR, CHAR_ROT8, CHAR_ATBASH, SHIFT_CAESAR, SHIFT_ROT8 } = require('../../const');
+const CustomWriteStream = require('../customStreams/CustomWriteStream');
+const CustomReadStream = require('../customStreams/CustomReadStream');
 
 class Streams {
   constructor(config, inputFile, outputFile) {
@@ -13,17 +15,12 @@ class Streams {
     this.readStream =
       inputFile === null
         ? process.stdin
-        : fs.createReadStream(this.inputFile, {
+        : new CustomReadStream(this.inputFile, {
             encoding: 'utf8',
             highWaterMark: 10,
           });
     this.writeStream =
-      outputFile === null
-        ? process.stdout
-        : fs.createWriteStream(this.outputFile, {
-            encoding: 'utf8',
-            flags: 'a',
-          });
+      outputFile === null ? process.stdout : new CustomWriteStream(this.outputFile);
   }
 
   createChainTransformStreams() {
@@ -49,11 +46,10 @@ class Streams {
   }
 
   async runPipeline() {
-    const fileStats = fs.statSync(this.outputFile);
-    if (this.outputFile && fileStats.size) {
+    if (this.outputFile && fs.statSync(this.outputFile).size) {
       fs.appendFile(this.outputFile, '\n', () => {});
     }
-    const pipeline2 = new Promise((res, rej) => {
+    return new Promise((res, rej) => {
       pipeline(
         [this.readStream, ...this.createChainTransformStreams(), this.writeStream],
         (err) => {
@@ -64,7 +60,6 @@ class Streams {
         }
       );
     });
-    await pipeline2;
   }
 }
 
