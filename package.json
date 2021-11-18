@@ -4,7 +4,8 @@
   "description": "cipher cli tool Caesar Atbash ROT-8",
   "main": "my_ciphering_cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "start": "node my_ciphering_cli.js -c C1-C1-R0-A -i ./input.txt -o ./output.txt",
     "lint": "eslint --fix src"
   },
@@ -16,9 +17,11 @@
   "license": "ISC",
   "homepage": "https://github.com/Yuri-9/ciphering-CLI-tool#readme",
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
+    "jest": "^27.3.1",
     "nodemon": "^2.0.14"
   }
 }
