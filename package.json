@@ -5,7 +5,7 @@
   "main": "my_ciphering_cli.js",
   "scripts": {
     "test": "jest",
-    "coverage": "jest --coverage",
+    "test:coverage": "jest --coverage",
     "start": "node my_ciphering_cli.js -c C1-C1-R0-A -i ./input.txt -o ./output.txt",
     "lint": "eslint --fix src"
   },
