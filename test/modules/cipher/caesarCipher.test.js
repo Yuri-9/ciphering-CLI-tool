@@ -6,15 +6,15 @@ const {
 } = require('../../../src/modules/cipher/caesarCipher');
 const { ENGLISH_ALFABIT } = require('../../../src/const');
 
-describe('Function Caesar cipher', () => {
-  test('Function isUpperCase() should return true, if char is uppercase', () => {
+describe('Function isUpperCase', () => {
+  test('should return true, if char is uppercase', () => {
     expect(isUpperCase('H')).toBe(true);
   });
-  test('Function isUpperCase() should return false, if char is lowercase', () => {
+  test('should return false, if char is lowercase', () => {
     expect(isUpperCase('h')).toBe(false);
   });
 
-  test('Function isUpperCase() should return false, if char is lowercase', () => {
+  test('should return false, if char is lowercase', () => {
     expect(isUpperCase('h')).toBe(false);
   });
 });
@@ -47,5 +47,11 @@ describe('Function caesarCipher', () => {
   const shift = 8;
   test('should encrypt the string correctly', () => {
     expect(caesarCipher(string, shift)).toBe(shipheedString);
+  });
+  test('should encrypt the string correctly to uppercase', () => {
+    expect(caesarCipher('HHH', shift)).toBe('PPP');
+  });
+  test('should return the same string', () => {
+    expect(caesarCipher('HHH')).toBe('HHH');
   });
 });

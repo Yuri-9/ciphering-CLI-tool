@@ -63,4 +63,10 @@ const validateConfigCipher = (configStr) =>
     res();
   });
 
-module.exports = validateConfigCipher;
+module.exports = {
+  validateConfigCipher,
+  isValidFirstChar,
+  hasEveryItemNotMoreTwoChar,
+  isShiftOneOrZero,
+  hasCipherShift,
+};
