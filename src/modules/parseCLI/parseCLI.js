@@ -21,4 +21,4 @@ const parseCLI = (appArgs) => {
   return optionObj;
 };
 
-module.exports = parseCLI;
+module.exports = { parseCLI, isItemOptionIsNameOptions };

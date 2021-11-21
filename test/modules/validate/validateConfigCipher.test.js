@@ -73,7 +73,6 @@ describe('Function validateConfigCipher', () => {
   const configStr2 = 'C1-C1-A-R2';
   test("should return error, if item of config C or R hasn't 0 or 1", () => {
     validateConfigCipher(configStr2).catch((e) => {
-      console.log(e);
       expect(e).toEqual(
         new CustomerError(
           `Config "${configStr2}" isn't valid. 0 or 1 should be after C or R in config. For example "C1-R0-A-C1"`

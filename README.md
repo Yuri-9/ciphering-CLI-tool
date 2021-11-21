@@ -2,11 +2,10 @@
 
 **Usage:** 
 
-Run app: **node my_ciphering_cli.js -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"**
-
-Before  run test you need install jest: **npm i** 
-Run test: ***npm run test***
-Run test:coverage: **npm run test:coverage**
+- Run app: `node my_ciphering_cli.js -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"`
+- Before  run test you need install jest: `npm i`
+- Run test: `npm run test`
+- Run test:coverage: `npm run test:coverage`
 
 -----------------------------------------------------------------------------
 
