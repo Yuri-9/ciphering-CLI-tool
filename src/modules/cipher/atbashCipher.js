@@ -1,4 +1,5 @@
 const { ENGLISH_ALFABIT } = require('../../const');
+const { isUpperCase } = require('./utilsCipher');
 
 const atbashCipher = (text) => {
   const textCipher = text.split('').map((letter) => {
@@ -7,8 +8,7 @@ const atbashCipher = (text) => {
       return letter;
     }
     const newLetter = ENGLISH_ALFABIT[ENGLISH_ALFABIT.length - 1 - index];
-    const isUpperCase = letter === letter.toUpperCase();
-    return isUpperCase ? newLetter.toUpperCase() : newLetter;
+    return isUpperCase(letter) ? newLetter.toUpperCase() : newLetter;
   });
   return textCipher.join('');
 };
