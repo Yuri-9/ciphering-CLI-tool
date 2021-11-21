@@ -12,14 +12,14 @@ const app = async () => {
     await validateOptionCLI(appArgs);
     const { config, input, output } = parseCLI(appArgs);
 
+    await validateConfigCipher(config);
+
     if (input !== null) {
       await isFileExists(input);
     }
     if (output !== null) {
       await isFileExists(output);
     }
-
-    await validateConfigCipher(config);
 
     const streams = new Streams(config, input, output);
     await streams.runPipeline();
