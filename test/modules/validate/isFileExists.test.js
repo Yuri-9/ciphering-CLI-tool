@@ -1,5 +1,4 @@
 const fs = require('fs');
-const CustomerError = require('../../../src/modules/customerError/customerError');
 const isFileExists = require('../../../src/modules/validate/isFileExists');
 
 jest.spyOn(fs, 'existsSync');

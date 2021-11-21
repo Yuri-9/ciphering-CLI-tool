@@ -33,7 +33,7 @@ describe('Arguments CLI. Running the cliApp and expecting a console output error
 });
 
 // Test config options
-describe('Config options. Running the cliApp and expcting a console output error', () => {
+describe('Config options. Running the cliApp and expecting a console output error', () => {
   const configStr1 = 'C1-C1-A-R01';
   test('should print to console error if User passes more than two chars to item of config', (done) => {
     exec(`node my_ciphering_cli -c "${configStr1}"`, (error, stdout, stderr) => {
@@ -45,7 +45,7 @@ describe('Config options. Running the cliApp and expcting a console output error
   });
 
   const configStr2 = 'C1-C1-A-R2';
-  test('should print to console error if 0 or 1 should be after C or R in config', (done) => {
+  test('should print to console error if 0 or 1 should be after  in config', (done) => {
     exec(`node my_ciphering_cli -c "${configStr2}"`, (error, stdout, stderr) => {
       expect(stderr).toBe(
         `\nError: Config "${configStr2}" isn't valid. 0 or 1 should be after C or R in config. For example "C1-R0-A-C1" \n`
