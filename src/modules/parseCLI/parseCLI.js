@@ -14,6 +14,7 @@ const parseCLI = (appArgs) => {
   OPTIONS.forEach((option) => {
     const indexOption = appArgs.findIndex((item) => option.includes(item));
     const itemOption = appArgs[indexOption + 1];
+
     if (!isItemOptionIsNameOptions(itemOption, OPTIONS)) {
       optionObj[option[1].slice(2)] = itemOption;
     }
@@ -21,4 +22,4 @@ const parseCLI = (appArgs) => {
   return optionObj;
 };
 
-module.exports = parseCLI;
+module.exports = { parseCLI, isItemOptionIsNameOptions };

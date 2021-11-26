@@ -19,7 +19,7 @@ const validateOptionCLI = (appArgs) =>
         rej(new CustomerError(`"${option.join('" or "')}" option is duplicated`));
       }
     });
-    res();
+    res('ok');
   });
 
-module.exports = validateOptionCLI;
+module.exports = { validateOptionCLI, isOptionDuplicated };

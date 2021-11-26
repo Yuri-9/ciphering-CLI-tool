@@ -1,5 +1,5 @@
 const { Transform } = require('stream');
-const caesarCipher = require('./caesarCipher');
+const { caesarCipher } = require('./caesarCipher');
 
 class CaesarCipherStream extends Transform {
   constructor(options = {}, shift) {

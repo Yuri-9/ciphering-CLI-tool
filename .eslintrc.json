@@ -1,7 +1,8 @@
 {
   "env": {
     "commonjs": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "extends": ["eslint:recommended", "airbnb-base", "prettier"],
   "parserOptions": {

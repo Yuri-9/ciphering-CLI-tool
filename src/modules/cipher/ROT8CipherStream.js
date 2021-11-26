@@ -1,5 +1,5 @@
 const { Transform } = require('stream');
-const caesarCipher = require('./caesarCipher');
+const { caesarCipher } = require('./caesarCipher');
 
 class ROT8CipherStream extends Transform {
   constructor(options = {}, shift) {
